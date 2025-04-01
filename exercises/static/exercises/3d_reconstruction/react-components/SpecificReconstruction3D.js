@@ -7,6 +7,11 @@ const SpecificRecontruction3D = (props) => {
     React.useEffect(() => {
         console.log("TestShowScreen subscribing to ['update'] events");
         const callback = (message) => {
+          console.log(message.data.update)
+          if (message.data.update.reset) {
+            reset_scene3d();
+          }
+
           if(message.data.update.img1){
             const data = message.data.update;
             draw(data)

@@ -149,7 +149,8 @@ class GUI(MeasuringThreadingGUI):
         self.point_to_send = []
         self.matching_to_save = []
         self.matching_to_send = []
-        self.server.send_message(self.client, "#res")
+        self.reset_payload = {'reset': 'T'}
+        self.send_to_client(json.dumps(self.reset_payload))
 
     def reset_gui(self):
         self.ClearAllPoints()
